@@ -1,4 +1,6 @@
 @import "_mixins.scss";
+$redLight: hsl(0, 36%, 70%);
+$redSoft: hsl(0, 93%, 68%);
 * {
   margin: 0;
   padding: 0;
@@ -23,10 +25,41 @@ body {
 body,
 input,
 button {
+  font-family: "Josefin Sans", sans-serif;
 }
 
-p {
+.main {
+  width: 100%;
+  max-width: 1470px;
+  margin: 0 auto;
+  padding: 50px 15px 30px;
 }
-
-body {
+.comming-soon {
+  width: 100%;
+  box-shadow: 0 2px 30px -8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  @include mqrange(768px, 5000px) {
+    min-height: 800px;
+  }
+  .contents {
+    flex-grow: 1;
+    background: url(../images/bg-pattern-desktop.svg) center no-repeat;
+    background-size: cover;
+    padding: 65px 30px 0 160px;
+    .logo {
+      background: url(../images/logo.svg) center no-repeat;
+      background-size: cover;
+      width: 160px;
+      height: 33px;
+      & > span {
+        position: absolute;
+        left: -9999px;
+      }
+    }
+  }
+  .photo {
+    flex: 0 0 610px;
+    background: url(../images/hero-desktop.jpg) center no-repeat;
+    background-size: cover;
+  }
 }
