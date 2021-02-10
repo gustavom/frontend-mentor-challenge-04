@@ -1,0 +1,5 @@
+@mixin mqrange($breakpointsMin, $breakpointsMax) {
+  @media only screen and (min-width: $breakpointsMin) and (max-width: $breakpointsMax) {
+    @content;
+  }
+}

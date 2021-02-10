@@ -1,0 +1,36 @@
+{
+  "name": "four-card-feature-section-master",
+  "version": "1.0.0",
+  "description": "Front-End Challenge",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run scss-build && npm run copyall",
+    "dev": "concurrently -p \"[{name}]\" -n \"CSS, DIST\" -c \"cyan, magenta\" \"npm run scss-build\" \"npm run copyall\" ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss-watch": "node-sass ./src/assets/scss -o ./src/assets/css --source-comments -w",
+    "scss-build": "node-sass ./src/assets/scss -o ./dist/assets/css --output-style compressed",
+    "watch": "concurrently -p \"[{name}]\" -n \"Clean,CSS,Browser-Sync\" -c \"yellow,cyan,magenta\" \"npm run clean && echo 'All Clean'\"  \"npm run scss-watch\" \"npm run serve\" ",
+    "serve": "browser-sync start --server --no-ghost-mode --no-ui --port 7777 --startPath /src --files 'src/assets/css/*.css, *.html'",
+    "copy:html": "cpx ./src/*.html ./dist",
+    "copy:images:svg": "cpx ./src/assets/images/*.svg ./dist/assets/images",
+    "copy:images:png": "cpx ./src/assets/images/*.png ./dist/assets/images",
+    "copy:images:jpg": "cpx ./src/assets/images/*.jpg ./dist/assets/images",
+    "copyall": "cpx ./src/**/*.{html,png,jpg,svg} ./dist",
+    "clean": "rimraf ./dist",
+    "img": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "concurrently": "^5.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "copyfiles": "^2.2.0",
+    "cpx": "^1.5.0",
+    "node-sass": "^4.13.1",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
