@@ -1,6 +1,9 @@
 @import "_mixins.scss";
 $redLight: hsl(0, 36%, 70%);
 $redSoft: hsl(0, 93%, 68%);
+$grey: hsl(0, 6%, 24%);
+$gradient01: hsl(0, 80%, 86%);
+$gradient02: hsl(0, 74%, 74%);
 * {
   margin: 0;
   padding: 0;
@@ -87,7 +90,7 @@ p {
         padding-top: 350px;
       }
       h2 {
-        color: hsl(0, 36%, 70%);
+        color: $redLight;
         font-size: 64px;
         font-weight: 300;
         letter-spacing: 17px;
@@ -95,7 +98,7 @@ p {
         padding-bottom: 18px;
         b {
           display: block;
-          color: hsl(0, 6%, 24%);
+          color: $grey;
           line-height: 1.1;
         }
         @include mqrange(0, 768px) {
@@ -107,7 +110,7 @@ p {
         }
       }
       p {
-        color: hsl(0, 36%, 70%);
+        color: $redLight;
         line-height: 1.8;
         max-width: 430px;
         padding-bottom: 40px;
@@ -129,18 +132,18 @@ p {
         input[type="email"] {
           width: 100%;
           height: 56px;
-          color: hsl(0, 36%, 70%);
+          color: $redLight;
           background-color: transparent;
           border-radius: 100px;
-          border: solid 1px hsl(0, 36%, 70%);
+          border: solid 1px $redLight;
           padding: 0 110px 0 32px;
           z-index: 1;
           @include placeholder {
-            color: hsl(0, 36%, 70%);
+            color: $redLight;
             opacity: 0.8;
           }
           &:focus:invalid {
-            border: solid 1px hsl(0, 93%, 68%);
+            border: solid 1px $redSoft;
             & ~ .error {
               width: 100%;
               top: 0;
@@ -151,7 +154,7 @@ p {
                 content: "Enter a valid email address.";
                 display: block;
                 width: 100%;
-                color: hsl(0, 93%, 68%);
+                color: $redSoft;
                 font-size: 12px;
                 padding-top: 10px;
                 text-align: center;
@@ -173,19 +176,11 @@ p {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-image: linear-gradient(
-            135deg,
-            hsl(0, 80%, 86%),
-            hsl(0, 74%, 74%)
-          );
+          background-image: linear-gradient(135deg, $gradient01, $gradient02);
           transition: background-image 0.5s linear;
           cursor: pointer;
           &:hover {
-            background-image: linear-gradient(
-              135deg,
-              hsl(0, 74%, 74%),
-              hsl(0, 80%, 86%)
-            );
+            background-image: linear-gradient(135deg, $gradient02, $gradient01);
           }
           &:before {
             content: "";
