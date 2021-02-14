@@ -40,13 +40,13 @@ p {
   width: 100%;
   box-shadow: 0 2px 30px -8px rgba(0, 0, 0, 0.3);
   display: flex;
-  background: url(../../../design/desktop-design.jpg) center no-repeat;
+  // background: url(../../../design/desktop-design.jpg) center no-repeat;
   @include mqrange(768px, 5000px) {
     min-height: 800px;
   }
   .contents {
     flex-grow: 1;
-    // background: url(../images/bg-pattern-desktop.svg) center no-repeat;
+    background: url(../images/bg-pattern-desktop.svg) center no-repeat;
     background-size: cover;
     padding: 65px 30px 0 165px;
     .logo {
@@ -83,23 +83,81 @@ p {
     }
     .form {
       width: 100%;
-      max-width: 430px;
+      max-width: 445px;
       form {
-        display: flex;
-        border: solid 1px hsl(0, 36%, 70%);
-        border-radius: 100px;
-        height: 54px;
-        align-items: center;
-        justify-content: space-between;
+        position: relative;
+        width: 100%;
         input[type="email"] {
-          flex-grow: 1;
-          height: 54px;
+          width: 100%;
+          height: 56px;
           color: hsl(0, 36%, 70%);
           background-color: transparent;
-          border: 0;
+          border-radius: 100px;
+          border: solid 1px hsl(0, 36%, 70%);
+          padding: 0 110px 0 32px;
+          z-index: 1;
           @include placeholder {
             color: hsl(0, 36%, 70%);
             opacity: 0.8;
+          }
+          &:focus:invalid {
+            border: solid 1px hsl(0, 93%, 68%);
+            & ~ .error {
+              width: 100%;
+              top: 0;
+              margin-top: 55px;
+              display: block;
+              position: absolute;
+              &:before {
+                content: "Enter a valid email address.";
+                display: block;
+                width: 100%;
+                color: hsl(0, 93%, 68%);
+                font-size: 12px;
+                padding-top: 10px;
+                text-align: center;
+              }
+            }
+          }
+        }
+        button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin-right: 1px;
+          margin-top: 1px;
+          border-radius: 100px;
+          width: 99px;
+          height: 54px;
+          border: 0;
+          font-size: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-image: linear-gradient(
+            135deg,
+            hsl(0, 80%, 86%),
+            hsl(0, 74%, 74%)
+          );
+          transition: background-image 0.5s linear;
+          cursor: pointer;
+          &:hover {
+            background-image: linear-gradient(
+              135deg,
+              hsl(0, 74%, 74%),
+              hsl(0, 80%, 86%)
+            );
+          }
+          &:before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-right: solid 2px #fff;
+            border-bottom: solid 2px #fff;
+            transform-origin: center;
+            transform: rotate(-45deg);
+            z-index: 2;
           }
         }
       }
@@ -109,5 +167,16 @@ p {
     flex: 0 0 610px;
     background: url(../images/hero-desktop.jpg) center no-repeat;
     background-size: cover;
+  }
+}
+
+.attribution {
+  color: hsl(218, 22%, 67%);
+  font-size: 16px;
+  padding: 25px 15px;
+  text-align: center;
+  a {
+    color: hsl(179, 62%, 43%);
+    text-decoration: none;
   }
 }
