@@ -47,7 +47,6 @@ p {
   box-shadow: 0 2px 30px -8px rgba(0, 0, 0, 0.3);
   display: flex;
   position: relative;
-  // background: url(../../../design/desktop-design.jpg) center no-repeat;
   @include mqrange(768px, 5000px) {
     min-height: 800px;
   }
@@ -59,7 +58,6 @@ p {
     flex-grow: 1;
     background: url(../images/bg-pattern-desktop.svg) center no-repeat;
     background-size: cover;
-    // padding: 65px 30px 0 165px;
     padding: 65px 30px 30px 10vw;
     @include mqrange(0, 1200px) {
       flex: 0 0 60%;
