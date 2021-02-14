@@ -35,20 +35,38 @@ p {
   max-width: 1470px;
   margin: 0 auto;
   padding: 50px 15px 30px;
+  @include mqrange(0, 768px) {
+    padding: 0 0 30px;
+  }
 }
 .comming-soon {
   width: 100%;
   box-shadow: 0 2px 30px -8px rgba(0, 0, 0, 0.3);
   display: flex;
+  position: relative;
   // background: url(../../../design/desktop-design.jpg) center no-repeat;
   @include mqrange(768px, 5000px) {
     min-height: 800px;
+  }
+  @include mqrange(0, 768px) {
+    flex-wrap: wrap;
+    padding: 0 0 30px;
   }
   .contents {
     flex-grow: 1;
     background: url(../images/bg-pattern-desktop.svg) center no-repeat;
     background-size: cover;
-    padding: 65px 30px 0 165px;
+    // padding: 65px 30px 0 165px;
+    padding: 65px 30px 30px 10vw;
+    @include mqrange(0, 1200px) {
+      flex: 0 0 60%;
+      padding: 65px 30px 30px;
+    }
+    @include mqrange(0, 768px) {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: 31px 30px 30px;
+    }
     .logo {
       background: url(../images/logo.svg) center no-repeat;
       background-size: cover;
@@ -58,9 +76,16 @@ p {
         position: absolute;
         left: -9999px;
       }
+      @include mqrange(0, 768px) {
+        width: 100px;
+        height: 20px;
+      }
     }
     .text {
       padding-top: 138px;
+      @include mqrange(0, 768px) {
+        padding-top: 350px;
+      }
       h2 {
         color: hsl(0, 36%, 70%);
         font-size: 64px;
@@ -73,17 +98,31 @@ p {
           color: hsl(0, 6%, 24%);
           line-height: 1.1;
         }
+        @include mqrange(0, 768px) {
+          text-align: center;
+          font-size: 10vw;
+          b {
+            text-align: center;
+          }
+        }
       }
       p {
         color: hsl(0, 36%, 70%);
         line-height: 1.8;
         max-width: 430px;
         padding-bottom: 40px;
+        @include mqrange(0, 768px) {
+          text-align: center;
+          max-width: 100%;
+        }
       }
     }
     .form {
       width: 100%;
       max-width: 445px;
+      @include mqrange(0, 768px) {
+        max-width: 100%;
+      }
       form {
         position: relative;
         width: 100%;
@@ -167,6 +206,19 @@ p {
     flex: 0 0 610px;
     background: url(../images/hero-desktop.jpg) center no-repeat;
     background-size: cover;
+    @include mqrange(0, 1200px) {
+      flex: 0 0 40%;
+    }
+    @include mqrange(0, 768px) {
+      width: 100%;
+      height: 250px;
+      background: url(../images/hero-mobile.jpg) center top no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 84px;
+    }
   }
 }
 
